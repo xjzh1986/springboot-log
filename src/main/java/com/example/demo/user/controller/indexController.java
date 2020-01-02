@@ -4,6 +4,8 @@ package com.example.demo.user.controller;
 import com.example.demo.log.entity.SysLogAnnotation;
 import com.example.demo.user.entity.SysUser;
 import com.example.demo.user.service.SysUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sysUser")
+@Api(tags = "用户操作模块")
 public class indexController {
 
     // logback
@@ -21,7 +24,8 @@ public class indexController {
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     @ResponseBody
-    @SysLogAnnotation("系统用户首页")
+    @SysLogAnnotation("用户操作模块")
+    @ApiOperation(value = "用户添加图书", notes = "用户添加图书")
     public String index(@RequestBody SysUser sysUserParam) {
         SysUser sysUser = sysUserService.selectByPrimaryKey(1);
         logger.debug("记录debug日志");

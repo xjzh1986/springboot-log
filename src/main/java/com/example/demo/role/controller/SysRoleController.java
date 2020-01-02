@@ -1,8 +1,11 @@
 package com.example.demo.role.controller;
 
 
+import com.example.demo.log.entity.SysLogAnnotation;
 import com.example.demo.role.entity.SysRole;
 import com.example.demo.role.service.SysRoleService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/sysRole")
+@Api(tags = "角色操作模块")
 public class SysRoleController {
 
     // logback
@@ -23,6 +27,8 @@ public class SysRoleController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "角色添加图书", notes = "角色添加图书")
+    @SysLogAnnotation("角色操作模块")
     public String index() {
         SysRole sysRole = sysRoleService.selectByPrimaryKey(1);
         logger.debug("记录debug日志");
