@@ -28,11 +28,6 @@ public class SysRoleController {
         logger.debug("记录debug日志");
         logger.info("访问了index方法");
         logger.error("记录了error错误日志");
-//        try{
-//            int i = 10/0;
-//        }catch(Exception e){
-//            logger.error("",e);
-//        }
         return "success";
     }
 }
