@@ -32,9 +32,6 @@ public class indexController {
         }catch(Exception e){
             logger.error("",e);
         }
-
-
-        String msg = "msg";
-        return msg;
+        return "success";
     }
 }
