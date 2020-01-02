@@ -28,12 +28,13 @@ public class SysRoleController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "角色添加图书", notes = "角色添加图书")
-    @SysLogAnnotation("角色操作模块")
+//    @SysLogAnnotation("角色操作模块")
     public String index() {
         SysRole sysRole = sysRoleService.selectByPrimaryKey(1);
         logger.debug("记录debug日志");
         logger.info("访问了index方法");
         logger.error("记录了error错误日志");
+        int i = 50/0;
         return "success";
     }
 }
