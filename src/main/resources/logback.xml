@@ -153,6 +153,7 @@
 		<appender-ref ref="file.all" />
 	</appender>
 
+	<logger name="com.example.demo.mapper" level="DEBUG" />
 	<!--  日志输出级别 -->
 	<!-- TRACE\DEBUG\INFO\WARN\ERROR\FATAL\OFF -->
 	<root level="INFO">
