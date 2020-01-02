@@ -1,15 +1,13 @@
 package com.example.demo.user.controller;
 
 
+import com.example.demo.log.entity.SysLogAnnotation;
 import com.example.demo.user.entity.SysUser;
 import com.example.demo.user.service.SysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sysUser")
@@ -21,9 +19,10 @@ public class indexController {
     @Autowired
     private SysUserService sysUserService;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
     @ResponseBody
-    public String index() {
+    @SysLogAnnotation("系统用户首页")
+    public String index(@RequestBody SysUser sysUserParam) {
         SysUser sysUser = sysUserService.selectByPrimaryKey(1);
         logger.debug("记录debug日志");
         logger.info("访问了index方法");
