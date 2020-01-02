@@ -1,7 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.user.controller;
 
-import com.example.demo.entity.SysUser;
-import com.example.demo.service.SysUserService;
+
+import com.example.demo.user.entity.SysUser;
+import com.example.demo.user.service.SysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,11 @@ public class indexController {
         logger.debug("记录debug日志");
         logger.info("访问了index方法");
         logger.error("记录了error错误日志");
-        try{
-            int i = 10/0;
-        }catch(Exception e){
-            logger.error("",e);
-        }
+//        try{
+//            int i = 10/0;
+//        }catch(Exception e){
+//            logger.error("",e);
+//        }
         return "success";
     }
 }
